@@ -123,6 +123,11 @@ public class HttpRequestHandler {
 
         public HttpURLConnectionBuilder setUrlParams(JSObject params, boolean shouldEncode)
             throws URISyntaxException, MalformedURLException {
+
+            if (params == null) {
+                return this;
+            }
+
             String initialQuery = url.getQuery();
             String initialQueryBuilderStr = initialQuery == null ? "" : initialQuery;
 
